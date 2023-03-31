@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+
+//import router
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+
+import 'bootstrap/dist/css/bootstrap.css'
+
+//components and pages import
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './Pages/Home';
+import Property from './Pages/Property';
+
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  
+  return ( 
+    <div className='d-flex flex-column'>
+        <Header className='my-3' />
+        <Routes>
+          <Route path='/' exact Component={Home} />
+          <Route path='/property/:id' exact Component={Property} />
+        </Routes>
+        <Footer />
     </div>
-  );
+   );
 }
 
 export default App;
